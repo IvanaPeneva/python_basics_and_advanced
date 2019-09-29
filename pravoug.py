@@ -1,0 +1,10 @@
+x1=float(input())
+y1=float(input())
+x2=float(input())
+y2=float(input())
+shir=(x1-x2)
+dul=(y1-y2)
+S=shir*dul
+P=2*(shir+dul)
+print(f"{S:.2f}")
+print(f"{P:.2f}")
