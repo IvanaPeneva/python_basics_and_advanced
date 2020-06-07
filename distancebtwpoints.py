@@ -1,55 +1,28 @@
 import math
 
-
 class Point:
-    def __init__(self,x,y):
-        self.x=x
-        self.y=y
+    def __init__(self, x, y):
+        self.x=int(x)
+        self.y=int(y)
 
-        
-class Povedenie:
-    def __init__(self, point_1:Point,point_2:Point):
-        self.point_1=point_1
-        self.point_2=point_2
-        self.distance=self.calculate()
+#printirane na tochki ne e kum zadachata
+sample_point=Point(2, 3)
+print(f"{sample_point.x}, {sample_point.y}")
 
-        
-    def calculate(self):
-        a=abs(self.point_1.x-self.point_2.x)
-        b=abs(self.point_1.y-self.point_2.y)
-        c=math.sqrt(a**2+b**2)
-        return c
-    def show(self):
-        return f"{self.distance:.3f}\n({self.point_1.x}, {self.point_1.y})\n({self.point_2.x}, {self.point_2.y})"
-def creator(x,y):
+
+def calculate_distance(p1:Point, p2:Point): #dobavqne na : kum class
+    delta_x=abs(p2.x-p1.x)
+    delta_y=abs(p2.y-p1.y)
+    return math.sqrt(delta_x**2 +delta_y**2)
+
+
+def create_point(x,y):
     point=Point(x,y)
     return point
 
-n=int(input())
-point_list=[]
-povedenie_list=[]
-for row in range(n):
-    x,y=[int(num) for num in input().split()]
-    point=creator(x,y)
-    point_list.append(point)
-
-for index_1 in range(len(point_list)):
-    for index_2 in range(len(point_list)):
-        if not index_1==index_2:
-            povedenie=Povedenie(point_list[index_1], point_list[index_2])
-            povedenie_list.append(povedenie)
-for povedenie in sorted(povedenie_list, key=lambda s:s.distance):
-    print(povedenie.show())
-    break
-
-            
-
-
-
-    
-
-    
-    
-    
-
-
+x_1, y_1=list(map(int,input().split()))  # or data=input().split()
+x_2, y_2=list(map(int,input().split()))
+point_1=create_point(x_1, y_1)
+point_2=create_point(x_2, y_2)
+distance=calculate_distance(point_1, point_2)
+print(f"{distance:.3f}")
