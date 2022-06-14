@@ -1,0 +1,1 @@
+API to calculate the price of a printed object-Used Cura Slicer and FastApi- Get the sliced gCode from Cura and search for MATERIAL.VOLUME_USED:{n}Use n to write the request. Smth like http://127.0.0.1:8000/api/calculator/?neededMaterial=24593&price=0.007where needed material is n=24593 and the price is 0.007
